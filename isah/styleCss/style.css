@@ -19,7 +19,7 @@
 @media(max-width:999px){
     .pain-login{
     text-align: center;
-    width: 80%;
+    width: 90%;
     margin: 0 auto 10px;
     }
 
@@ -102,7 +102,7 @@ body{
 }
 
 .divuserisa{
-    width: 50%;
+    width: 70%;
     margin: 0 auto 10px;
     display: flex;
     justify-content: space-around;
