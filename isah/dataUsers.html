@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleCss/style.css">
+    <title>Dados Salvos</title>
+    <style>
+        body{
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #fff;">Dados Salvos</h1>
+    <br><br>
+    <div id="data-container">
+        <p>Carregando dados...</p>
+    </div>
+
+    <script>
+        // Função para carregar os dados do JSON
+        function loadData() {
+            fetch('/get-data')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar os dados');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Exibe os dados
+                    const container = document.getElementById('data-container');
+                    container.innerHTML = `
+                        <p><strong>Usuário:</strong> ${data.username}</p>
+                        <p><strong>Senha:</strong> ${data.password}</p>
+                    `;
+                })
+                .catch(error => {
+                    const container = document.getElementById('data-container');
+                    container.innerHTML = `<p style="color: red;">${error.message}</p>`;
+                });
+        }
+
+        // Carrega os dados quando a página é carregada
+        window.onload = loadData;
+    </script>
+</body>
+</html>

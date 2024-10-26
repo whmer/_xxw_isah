@@ -1,0 +1,109 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --font-family: Helvetica, Arial, sans-serif;
+    --sam:"SF Pro Text", "SF Pro Icons", system, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "Ubuntu", "Cantarell", "Fira Sans", sans-serif;
+    
+}
+
+.pain-login{
+    text-align: center;
+    width: 470px;
+    margin: 0 auto 10px;
+}
+
+@media(max-width:999px){
+    .pain-login{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto 10px;
+    }
+
+}
+body{
+    background: #f7f7f7;
+    font-size: 16px;
+    font-family: var(--sam);
+    font-weight: 600;
+}
+
+#username{
+    margin-top: 10px;
+    width: 80%;
+    padding: 8px;
+    outline: none;
+    color: #000;
+    border-radius: 3px;
+    border: 1px solid #bebebea1;
+    background: #f7f7f7;
+    font-size: 13px;
+    transition: 0.2s;
+    font-family: var(--sam);
+    font-weight: 480;
+}
+#username:focus{
+    border: 1px solid #000;
+    transition: 0.2s;
+}
+#password{
+    width: 80%;
+    padding: 8px;
+    outline: none;
+    color: #000;
+    border-radius: 3px;
+    border: none;
+    background: #f7f7f7;
+    font-size: 13px;
+    transition: 0.2s;
+    font-family: var(--sam);
+    font-weight: 480;
+}
+.inputpass{
+    display: flex;
+    text-align: left;
+    border: 1px solid #bebebea1;
+    border-radius: 4px;
+    width: 80%;
+    margin: 0 auto 10px;
+    margin-top: 10px;
+}
+
+.instagram{
+    background: #53bdeb;
+    border: none;
+    padding: 10px;
+    width: 80%;
+    border-radius: 8px;
+    color: #fff;
+    font-family: var(--sam);
+    font-weight: 600;
+}
+
+.inputpass.active {
+    border: 1px solid #000;
+}
+
+
+.inputsenha{
+    width: 100%;
+}
+.rese{
+    text-align: right;
+    width: 80%;
+    margin: 0 auto 10px;
+}
+.view{
+    margin-right: 8px;
+    margin-top: 5px;
+}
+
+.divuserisa{
+    width: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-around;
+}
