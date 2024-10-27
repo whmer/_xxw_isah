@@ -144,9 +144,6 @@ body{
     color: #fff;
     font-family: var(--sam);
     font-weight: 600;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     border-top: 1px solid #535353a1;
 }
 
