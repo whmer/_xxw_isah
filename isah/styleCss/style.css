@@ -45,10 +45,6 @@ body{
     font-family: var(--sam);
     font-weight: 480;
 }
-#username:focus{
-    border: 1px solid #000;
-    transition: 0.2s;
-}
 #password{
     width: 80%;
     padding: 8px;
@@ -84,9 +80,7 @@ body{
 }
 
 
-.inputpass.active {
-    border: 1px solid #000;
-}
+
 
 
 .inputsenha{
@@ -112,7 +106,6 @@ body{
 .divClick{
     position: fixed;
     background: #fff;
-    height: 20vh;
     top: 20%;
     left: 20px;
     right: 20px;
@@ -126,7 +119,6 @@ body{
     .divClick{
         position: fixed;
         background: #fff;
-        height: 30vh;
         top: 20%;
         left: 20px;
         right: 20px;
@@ -155,4 +147,16 @@ body{
     right: 0;
     top: 0;
     display: none;
+    animation: --div 0.7s ease-in;
+}
+
+@keyframes --div{
+    from{
+        transform: translate3d(1px);
+        opacity: 0;
+    }
+    to{
+        transform: translate3d(0);
+        opacity: 1;
+    }
 }
