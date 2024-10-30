@@ -160,3 +160,7 @@ body{
         opacity: 1;
     }
 }
+.renderlogo{
+    background:#1f1e1e;
+    padding: 10px;
+}
